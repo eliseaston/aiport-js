@@ -3,13 +3,15 @@ function Airport() {
   this.capacity = 10;
 }
 
-Airport.prototype.takeOff = function(plane) {
-  index = this.hangar.indexOf(plane)
-  this.hangar.splice(index, 1)
-}
+// Airport.prototype.takeOff = function(plane) {
+//   index = this.hangar.indexOf(plane)
+//   this.hangar.splice(index, 1)
+// }
 
-Airport.prototype.checkCapacity = function() {
+Airport.prototype.hasSpace = function() {
   if (this.hangar.length >= this.capacity) {
-    throw new Error("Airport at capacity!")
+    return false
+  } else {
+    return true
   }
 }
