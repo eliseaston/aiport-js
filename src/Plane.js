@@ -3,15 +3,9 @@ function Plane () {
 }
 
 Plane.prototype.land = function(airport) {
-  if (airport.hasSpace()) {
-    airport.hangar.push(plane)
-    return airport
-  } else {
-    return "Cannot land!"
-  }
-}
+  airport.prepareForLanding(this);
+};
 
-Plane.prototype.take_off = function(airport) {
-  index = airport.hangar.indexOf(this)
-  airport.hangar.splice(index, 1)
-}
+Plane.prototype.takeoff = function(airport) {
+  airport.prepareForTakeoff(this);
+};
