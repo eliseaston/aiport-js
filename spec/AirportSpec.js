@@ -6,13 +6,14 @@ describe("Airport", function () {
   });
 
   it("contains a plane when a plane lands", function () {
+    spyOn(plane, 'land').and.callThrough();
     plane.land(airport)
     expect(airport.hangar).toContain(plane)
   });
 
   it("can take off from an airport", function() {
-    plane.land(airport)
-    airport.prepareForTakeoff(plane)
+    spyOn(plane, 'land').and.callThrough();
+    spyOn(plane, 'takeoff').and.callThrough();
     expect(airport.hangar).not.toContain(plane)
   });
 

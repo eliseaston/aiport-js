@@ -17,9 +17,9 @@ Airport.prototype.prepareForTakeoff = function(plane) {
 };
 
 Airport.prototype.hasSpace = function() {
-  if (this.hangar.length >= this.capacity) {
-    return false
-  } else {
+  if (this.hangar.length < this.capacity) {
     return true
+  } else {
+    return false
   }
 };
